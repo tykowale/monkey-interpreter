@@ -31,6 +31,11 @@ type LetStatement struct {
 	Value Expression
 }
 
+type ReturnStatement struct {
+	Token       token.Token
+	ReturnValue Expression
+}
+
 // Program reciever methods
 func (p *Program) TokenLiteral() string {
 	if len(p.Statements) > 0 {
@@ -56,4 +61,13 @@ func (ls *LetStatement) statementNode() {
 
 func (ls *LetStatement) TokenLiteral() string {
 	return ls.Token.Literal
+}
+
+// ReturnStatement reciever methods
+func (rs *ReturnStatement) statementNode() {
+
+}
+
+func (rs *ReturnStatement) TokenLiteral() string {
+	return rs.Token.Literal
 }
