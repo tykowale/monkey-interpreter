@@ -45,6 +45,11 @@ type ExpressionStatement struct {
 	Expression Expression
 }
 
+type IntegerLiteral struct {
+	Token token.Token
+	Value int64
+}
+
 // Program reciever methods
 func (p *Program) TokenLiteral() string {
 	if len(p.Statements) > 0 {
@@ -139,4 +144,17 @@ func (es *ExpressionStatement) String() string {
 	}
 
 	return ""
+}
+
+// IntegerLiteral reciever methods
+func (il *IntegerLiteral) expressionNode() {
+
+}
+
+func (il *IntegerLiteral) TokenLiteral() string {
+	return il.Token.Literal
+}
+
+func (il *IntegerLiteral) String() string {
+	return il.Token.Literal
 }
